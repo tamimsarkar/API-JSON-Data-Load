@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=fa-rotate-270, initial-scale=1.0">
+    <title>Json DataLoad</title>
+</head>
+<body>
+    
+    <h2>Json Dataload</h2>
+
+    <ul id="users-container">
+
+
+    </ul>
+    <h2>TODO's</h2>
+    <ul id="todo-container"></ul>
+
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUsers(json))
+       
+        function displayUsers(users){
+            const userNames = users.map(user => user.username);
+            const ul = document.getElementById('users-container');
+            for (let i = 0; i < userNames.length; i++) {
+                const user = userNames[i];
+                const li = document.createElement('li');
+                li.innerText= user;
+                ul.appendChild(li);
+               
+            }
+          
+        }
+        
+          // Loat data from server (todo)
+          fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => response.json())
+        .then(json =>loadTodo(json))
+       
+       function loadTodo(todo){
+        const title = todo.map(todos =>todos.title)
+        
+        const ul = document.getElementById('todo-container');
+        for (let i = 0; i < title.length; i++) {
+            const todoItem = title[i];
+            
+            const li = document.createElement('li');
+
+            li.innerText = todoItem;
+            ul.appendChild(li);
+        }
+
+       }
+          
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    
+    <h2>INTRODUCING JSON</h2>
+    <P>JAVASCRIPT OBJECT NOTATION</P>
+
+    <script>
+        const student = {
+            name : 'Tamim Sarkar',
+            id : 44,
+            hobby : 'gardenning'
+
+        }
+        const json = JSON.stringify(student);
+        console.log(json);
+        const parse = JSON.parse(json)
+        console.log(parse)
+    </script>
+</body>
+</html>
